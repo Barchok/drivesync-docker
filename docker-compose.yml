@@ -1,0 +1,14 @@
+version: "3"
+services:
+  drivesync:
+    image: barchok/drivesync
+    environment:
+      - UID=1000
+      - GID=1000  
+      - INTERVAL=300
+    volumes:
+      - ./sync:/sync
+      - ./appdata:/appdata
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
